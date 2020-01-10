@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .child{
+        border:1px solid green;
+        padding:20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h2>我是父组件</h2>
+      <child :info='还是吃得太饱'></child>
+    </div>
+    <script src="./lib/vue.js"></script>
+    <script type="text/x-template" id="childTpl">
+      <div class="child">
+        <h2>我是子组件</h2>
+        <p>父亲说:{{info}}</p>
+        <input type="text" v-model="info">
+      </div>
+    </script>
+    <script>
+      Vue.component('child', {
+        template:'#childTpl',
+        props:['info']
+      })
+
+      const app = new Vue({
+        el: "#app",
+        data: {
+        }
+      });
+      </script>
+  </body>
+</html>

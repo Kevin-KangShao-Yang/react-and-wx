@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/snabbdom/0.7.1/snabbdom.js"></script>
+    <script src="https://cdn.bootcss.com/snabbdom/0.7.1/snabbdom-class.js"></script>
+    <script src="https://cdn.bootcss.com/snabbdom/0.7.1/snabbdom-style.js"></script>
+    <script src="https://cdn.bootcss.com/snabbdom/0.7.1/snabbdom-props.js"></script>
+</head>
+
+<body>
+    <div id="container"></div>
+    <button id="btn-change">change</button>
+</body>
+<script>
+    // 定义patch函数，patch函数的作用就是第一次渲染和后续渲染，把我们的虚拟dom最终生成真实的dom
+    var patch = snabbdom.init([
+        snabbdom_class,
+        snabbdom_style,
+        snabbdom_props
+    ])
+
+    // 定义h函数，就是利用数据生成虚拟dom，注意虚拟dom是在内存中，必须借助于patch函数才能让用户看到
+    var h = snabbdom.h
+
+    // 数据
+    var datas = [
+        {
+            name: '小刘',
+            age: 30,
+            address: "北京"
+        },
+        {
+            name: '小仓',
+            age: 20,
+            address: "上海"
+        },
+        {
+            name: '小明',
+            age: 25,
+            address: "深圳"
+        }
+    ]
+
+    // 添加表头
+    datas.unshift({
+        name: '姓名',
+        age: "年龄",
+        address: "地址"
+    })
+
+    var vnode
+    function render(datas) {
+        // 重新生成虚拟dom，这个只是在内存中
+        var newVNode = h('table',{},datas.map(function(item){
+            var tds = []
+            for(key in item){
+                if(item.hasOwnProperty(key)){
+                    tds.push(h('td',{},item[key]+""))
+                }
+            }
+            return h('tr',{},tds)
+        }))
+
+        console.log(newVNode)
+        
+        // 非首次渲染
+        if (vnode){
+            console.log(vnode)
+            console.log(newVNode)
+
+            patch(vnode,newVNode)
+        } else {
+            // re-render
+            patch(document.getElementById('container'),newVNode)
+        }
+
+        // 赋值
+        vnode = newVNode
+    }
+
+    // 初次渲染
+    render(datas)
+
+    // 添加点击渲染
+    document.getElementById('btn-change').addEventListener('click',function(){
+        datas[2].age = 111
+        datas[3].address= "东京"
+
+        render(datas)
+    })
+</script>
+
+</html>

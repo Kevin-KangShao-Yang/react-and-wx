@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>移动端自适应</title>
+  <style>
+    .box{
+      width: 100px;
+      height: 100px;
+      background-color: hotpink;
+    }
+    .rbox{
+      /* 这里转成px:6.26*根元素的font-size值 */
+      /* x * 37.5 =100*/
+      /* width: 6.25rem;
+      height: 6.25rem;; */
+
+      width:2.67rem;
+      height: 2.67rem;
+      background-color: hotpink;
+    }
+    img {
+  width: 2.666666666666667rem;
+  height: 3.786666666666667rem;
+}
+
+  </style>
+  <script src="./lib/flexible.js"></script>
+</head>
+<body>
+
+  <div class="box"></div>
+  <div class="rbox"></div>
+
+  <div>
+      <img src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2565101658.webp" alt="">
+      <img src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2565101658.webp" alt="">
+      <img src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2565101658.webp" alt="">
+  </div>
+  
+  
+</body>
+</html>

@@ -1,0 +1,16 @@
+.title{
+    height: 200px;
+    font-size: 100px;
+    font-weight: 900;
+    background-color: #ff69b4;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.links{
+    margin: 0px;
+    padding: 0px;
+    color:black;
+    font-size: 20px;
+}

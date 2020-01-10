@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <style>
+    .child1 {
+      border: 1px solid green;
+      padding: 20px 0;
+    }
+    .child2 {
+      border: 1px solid blue;
+      padding: 20px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <h2>我是父组件</h2>
+    <child1></child1>
+    <child2></child2>
+  </div>
+  <script src="./lib/vue.js"></script>
+  <script type="text/x-template" id="child1Tpl">
+    <div class="child1">
+        <h2>我是子组件1</h2>
+        <button @click="say">对弟弟说</button>
+      </div>
+    </script>
+
+    <script type="text/x-template" id="child2Tpl">
+      <div class="child2">
+          <h2>我是子组件2</h2>
+        </div>
+      </script>
+
+  <script>
+    Vue.component('child1', {
+      template: '#child1Tpl',
+      methods: {
+        say(){
+          eventBus.$emit('brother-event','千万不要早恋')
+        }
+      },
+    })
+
+    Vue.component('child2', {
+      template: '#child2Tpl',
+      created() {
+        debugger
+        eventBus.$on('brother-event',function(data){
+          console.log(data)
+        })
+      },
+    })
+
+
+    let eventBus = new Vue()
+
+    const app = new Vue({
+      el: "#app",
+      data: {}
+    });
+  </script>
+</body>
+
+</html>

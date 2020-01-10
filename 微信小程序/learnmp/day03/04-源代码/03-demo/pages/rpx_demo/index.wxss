@@ -1,0 +1,15 @@
+.box{
+  width: 375px;
+  height: 100px;
+  background-color: hotpink;
+}
+.rbox{
+  width: 375rpx;
+  height: 200rpx;
+  background-color: hotpink;
+}
+
+image{
+  width: 232rpx;
+  height: 188rpx;
+}

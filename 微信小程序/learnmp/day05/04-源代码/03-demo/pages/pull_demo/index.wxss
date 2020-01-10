@@ -1,0 +1,4 @@
+.item{
+  height: 150rpx;
+  border:1rpx solid #666;
+}

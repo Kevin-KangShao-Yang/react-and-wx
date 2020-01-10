@@ -1,0 +1,1 @@
+<button bindtap="goBack">返回</button>

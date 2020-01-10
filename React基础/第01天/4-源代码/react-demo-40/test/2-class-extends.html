@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+         //用class类创建一个替代构造函数
+        class Animal {
+            //实例属性
+            name = ""
+            age = 0
+            // 用构造器简化对实例属性的赋值 
+            constructor(name, age) {
+                this.name = name
+                this.age = age
+            }
+            //静态方法
+            static sleep() {
+                console.log('所有的动物都是闭着眼睛睡觉')
+            }
+        }
+
+       //创建一个子类替代构造函数,子类会继承父类的所有
+        class Cat extends Animal {
+            // 静态属性
+            static habitat = '地球'
+            // 用构造器简化对实例属性的赋值   在子类重写constructor构造器，必须第一句调用    super()
+            constructor(name, age, color) {
+                // 必须调用父类，这是语法规定
+                super(name, age)
+                this.color = color
+            }
+            // 实例方法
+            eat() {
+                console.log('猫吃鱼')
+            }
+        }
+
+        //创建一个c1实例
+        const c1 = new Cat('蓝猫', 3, 'blue')
+        console.log(c1)
+        c1.eat()
+        Cat.sleep()
+        console.log(`所有的动物现在栖息在 ${Cat.habitat}`)
+        Cat.habitat = '阿尔法半人马座星'
+        console.log(`所有的动物现在栖息在 ${Cat.habitat}`)
+    </script>
+</body>
+
+</html>

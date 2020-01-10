@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Animal{
+            name=""
+            age=0
+
+            constructor(name,age){
+                this.name = name
+                this.age = age
+            }
+
+            eat() {
+                console.log('动物吃草')
+            }
+        }
+        
+        class Cat extends Animal{
+            color = ''
+
+            constructor(name,age,color){
+                // 必须调用父类，这是语法规定
+                super(name,age)
+
+                this.color = color
+            }
+
+            eat() {
+                console.log('猫吃鱼')
+            }
+        }
+
+        const c1 = new Cat('蓝猫',3,'blue')
+        console.log(c1)
+        c1.eat()
+    </script>
+</body>
+</html>

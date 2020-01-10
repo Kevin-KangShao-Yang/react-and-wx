@@ -1,0 +1,3 @@
+export const SET_FILTER_DATA = 'SET_FILTER_DATA'
+export const SET_TITLE_VALUE = 'SET_TITLE_VALUE'
+export const SET_OPEN_TYPE = 'SET_OPEN_TYPE'

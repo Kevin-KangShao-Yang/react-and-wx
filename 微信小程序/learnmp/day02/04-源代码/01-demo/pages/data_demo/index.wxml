@@ -1,0 +1,8 @@
+<text>{{msg}}</text>
+
+<view wx:for="{{movieList}}" wx:key="*this">
+{{item}} --{{index}}
+</view>
+
+
+<view class="box {{isRed?'red':''}}" bindtap="changeRed"></view>

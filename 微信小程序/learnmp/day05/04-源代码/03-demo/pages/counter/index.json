@@ -1,0 +1,6 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "计数器",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

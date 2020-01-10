@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <style>
+    .child {
+      border: 1px solid green;
+      padding: 20px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <h2>我是父组件</h2>
+    <child @child-event="getSonMsg"></child>
+  </div>
+  <script src="./lib/vue.js"></script>
+  <script type="text/x-template" id="childTpl">
+    <div class="child">
+        <h2>我是子组件</h2>
+        <p>我想对父亲说的:{{message}}</p>
+        <!-- <button @click="say">对父亲说</button> -->
+        <!-- 一边输入，一边给父亲发消息 -->
+        <input type="text" :value="message" @input="inputHandler">
+      </div>
+    </script>
+  <script>
+    Vue.component('child', {
+      template: '#childTpl',
+      data(){
+        return{
+          message:'不要抽烟'
+        }
+      },
+      methods: {
+        inputHandler(event){
+          this.message = event.target.value
+          this.$emit('child-event',this.message)
+        },
+        say(){
+          this.$emit('child-event',this.message)
+        }
+      },
+    })
+
+    const app = new Vue({
+      el: "#app",
+      data: {},
+      methods: {
+        getSonMsg(data){
+          console.log(data) //不要抽烟
+        }
+      },
+    });
+  </script>
+</body>
+
+</html>

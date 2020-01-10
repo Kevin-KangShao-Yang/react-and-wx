@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+    <button id="btn-change">change</button>
+</body>
+<script>
+    var datas = [
+        {
+            name: '小刘',
+            age: 30,
+            address: "北京"
+        },
+        {
+            name: '小仓',
+            age: 20,
+            address: "上海"
+        },
+        {
+            name: '小明',
+            age: 25,
+            address: "深圳"
+        }
+    ]
+
+    // 添加表头
+    datas.unshift({
+        name: '姓名',
+        age: "年龄",
+        address: "地址"
+    })
+
+    function render(datas){
+        // 重新清空 container 的内容
+        $("#container").html('')
+
+        // 重新生成table
+        var table = $("<table></table>")
+
+        // 根据数据渲染tr并且添加到table中
+        datas.forEach(function(item){
+            tr = $("<tr><td>"+item.name+"</td><td>"+item.age+"</td><td>"+item.address+"</td></tr>")
+
+            // 把tr添加到table
+            table.append(tr)
+        })
+
+        console.log(table)
+        
+        // 把table添加到container
+        $("#container").append(table)
+    }
+
+    render(datas)
+
+    // 更改事件
+    $('#btn-change').click(function(){
+        datas[2].age = 50
+        datas[3].address = "东京"
+        
+        // 重新渲染
+        render(datas)
+    })
+</script>
+</html>

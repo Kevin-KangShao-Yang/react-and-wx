@@ -1,0 +1,3 @@
+<view>
+  <view class="item" wx:for="{{list}}">Item {{item}} </view>
+</view>

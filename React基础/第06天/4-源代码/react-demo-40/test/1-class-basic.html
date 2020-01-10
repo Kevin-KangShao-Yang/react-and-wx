@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Animal{
+            // 实例属性
+            name = ''
+            age = 0
+
+            // 静态属性
+            static habitat = '地球'
+
+            // 简化对实例属性的赋值
+            constructor(name,age) {
+                console.log('Animal---constructor')
+                this.name = name
+                this.age = age
+            }
+
+            // 实例方法
+            eat(food) {
+                console.log(`${this.name} 吃 ${food}`)
+            }
+
+            static sleep(){
+                console.log('所有的动物都是闭着眼睛睡觉')
+            }
+        }    
+        
+        // console.log(typeof Animal) // function
+        const a1 = new Animal('旺财',3)
+        // a1.name = '旺财'
+        // a1.age = 3
+        // console.log(a1.name,a1.age)
+        // console.log(a1,typeof a1)
+        a1.eat('骨头')
+
+        const a2 = new Animal('来福',4)
+        // console.log(a2)
+        a2.eat('牛排')
+
+        console.log(`所有的动物现在栖息在 ${Animal.habitat}`)
+
+        Animal.habitat = '阿尔法半人马座星'
+
+        console.log(`所有的动物现在栖息在 ${Animal.habitat}`)
+
+        Animal.sleep()  
+    </script>
+</body>
+</html>

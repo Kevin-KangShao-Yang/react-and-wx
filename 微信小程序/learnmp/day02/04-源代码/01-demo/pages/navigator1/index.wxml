@@ -1,0 +1,4 @@
+<text>页面1</text>
+
+<navigator url="/pages/navigator2/index">去到页面2</navigator>
+<button bindtap="toPage2" data-title="joven">跳转</button>

@@ -1,0 +1,21 @@
+page {
+  background-color: #566a78;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hero {
+  width: 33.33%;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero image {
+  width: 88px;
+  height: 88px;
+}
